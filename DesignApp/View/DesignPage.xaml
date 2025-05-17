@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DesignApp.View.DesignPage"
+             Title="DesignPage">
+    <Grid RowDefinitions="Auto,Auto,*" Margin="20,50,20,0" RowSpacing="20">
+        <Border Grid.Row="0" HeightRequest="57" BackgroundColor="{StaticResource Secondary}" StrokeThickness="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10"></RoundRectangle>
+            </Border.StrokeShape>
+            <Grid ColumnDefinitions="*,*,*" Padding="10">
+                <Image Grid.Column="0" HorizontalOptions="Start" Source="logo.png" HeightRequest="33" WidthRequest="33"/>
+                <Label Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="22" Text="Design" Style="{StaticResource SemiBold}" TextColor="{StaticResource PrimaryDarkText}"/>
+                <Image Grid.Column="2" HorizontalOptions="End" Source="profileicon.png" HeightRequest="33" WidthRequest="33">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*" ColumnSpacing="10">
+                <Frame Grid.Column="0" Padding="8,8" CornerRadius="20" BorderColor="{StaticResource Primary}" BackgroundColor="{StaticResource Primary}">
+                    <Label Text="All" FontSize="14" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Style="{StaticResource Medium}" TextColor="White"/>
+                </Frame>
+                <Frame Grid.Column="1" Padding="8,8" CornerRadius="20" BorderColor="{StaticResource Primary}">
+                    <Label Text="Featured" FontSize="14" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Style="{StaticResource Medium}" TextColor="{StaticResource Primary}"/>
+                </Frame>
+                <Frame Grid.Column="2" Padding="8,8" CornerRadius="20" BorderColor="{StaticResource Primary}">
+                    <Label Text="Latest" FontSize="14" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Style="{StaticResource Medium}" TextColor="{StaticResource Primary}"/>
+                </Frame>
+                <Frame Grid.Column="3" Padding="8,8" CornerRadius="20" BorderColor="{StaticResource Primary}">
+                    <Label Text="Popular" FontSize="14" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Style="{StaticResource Medium}" TextColor="{StaticResource Primary}"/>
+                </Frame>
+            </Grid>
+        <ScrollView Grid.Row="2" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Spacing="10" Padding="3,0">
+                <CollectionView x:Name="CardsCollectionView" ItemsSource="{Binding Cards}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame x:Name="CardFrame" Style="{StaticResource CardFrameStyle}">
+                                <HorizontalStackLayout Spacing="10">
+                                    <Frame BorderColor="Transparent" Padding="5">
+                                        <Image Source="logo.png" HeightRequest="50" WidthRequest="50" />
+                                    </Frame>
+                                    <VerticalStackLayout Spacing="2">
+                                        <Label Text="Hello Everyone" Style="{StaticResource CardTitleLabelStyle}" />
+                                        <Label Text="Here is the Description" Style="{StaticResource CardLabelStyle}" />
+                                        <Label Text="#Hastag @Mention *Required" Style="{StaticResource CardTagLabelStyle}" />
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

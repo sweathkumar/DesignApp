@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DesignApp.View.AboutPage"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             Title="AboutPage">
+    <Grid RowDefinitions="Auto,Auto,*" Margin="20,50,20,0" RowSpacing="20">
+        <Border Grid.Row="0" HeightRequest="57" BackgroundColor="{StaticResource Secondary}" StrokeThickness="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10"></RoundRectangle>
+            </Border.StrokeShape>
+            <Grid ColumnDefinitions="*,*,*" Padding="10">
+                <Image Grid.Column="0" HorizontalOptions="Start" Source="logo.png" HeightRequest="33" WidthRequest="33"/>
+                <Label Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="22" Text="About" Style="{StaticResource SemiBold}" TextColor="{StaticResource PrimaryDarkText}"/>
+                <Image Grid.Column="2" HorizontalOptions="End" Source="profileicon.png" HeightRequest="33" WidthRequest="33">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </Border>
+        <ScrollView Grid.Row="2" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Design App" HorizontalTextAlignment="Center" FontSize="40" Style="{StaticResource Bold}"/>
+                <Border Padding="20" Stroke="Transparent">
+                    <skia:SKLottieView Source="flower.json" BackgroundColor="white" RepeatCount="1" HeightRequest="300" WidthRequest="300"/>
+                </Border>
+                <Label Text="A Team Blue Development" FontSize="22" HorizontalTextAlignment="Center" Style="{StaticResource SemiBold}"  TextColor="{StaticResource Gray300}"/>
+                <Label Text="A SweathKumar Projects" FontSize="18" HorizontalTextAlignment="Center" Style="{StaticResource Regular}"/>
+                <Label Text="Design App is a sleek, modern application crafted by Team Blue Development to simplify your design workflow. Created with passion by SweathKumar Projects." FontSize="14" HorizontalTextAlignment="Center" Style="{StaticResource Regular}"/>
+                <Label Text="© 2025 Team Blue Development. All rights reserved." FontSize="14" HorizontalTextAlignment="Center" Style="{StaticResource Regular}"/>
+                <Button Margin="0,20" Text="Contact Us" FontSize="20" Style="{StaticResource SemiBold}" TextColor="White" CornerRadius="30" Clicked="Button_Clicked"></Button>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

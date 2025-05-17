@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="DesignApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:DesignApp"
+    xmlns:pages="clr-namespace:DesignApp.View"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
+    Title="DesignApp">
+    
+    <!-- Bottom Tabs -->
+    <TabBar>
+        <ShellContent Title="Home" Icon="hometab.png" ContentTemplate="{DataTemplate pages:HomePage}" />
+        <ShellContent Title="Design" Icon="designtab.png" ContentTemplate="{DataTemplate pages:DesignPage}" />
+        <ShellContent Title="About" Icon="abouttab.png" ContentTemplate="{DataTemplate pages:AboutPage}" />
+    </TabBar>
+
+</Shell>

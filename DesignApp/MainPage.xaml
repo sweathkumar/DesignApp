@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DesignApp.MainPage">
+
+    <ContentView Margin="20,40,20,0">
+        <StackLayout>
+            <Border HeightRequest="57" BackgroundColor="{StaticResource Secondary}" StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"></RoundRectangle>
+                </Border.StrokeShape>
+                <Grid ColumnDefinitions="*,*,*" Padding="10">
+                    <Image Grid.Column="0" HorizontalOptions="Start" Source="logo.png" HeightRequest="33" WidthRequest="33"/>
+                    <Label Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="22" Text="Design" Style="{StaticResource SemiBold}" TextColor="{StaticResource PrimaryDarkText}"/>
+                    <ImageButton Grid.Column="2" HorizontalOptions="End" Source="profileicon.png" HeightRequest="33" WidthRequest="33"/>
+                </Grid>
+            </Border>
+        </StackLayout>
+    </ContentView>
+</ContentPage>
