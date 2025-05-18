@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:DesignApp.Controls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="DesignApp.View.Login"
+             Title="Login">
+    <ScrollView>
+        <StackLayout VerticalOptions="Center" Padding="0,0" Spacing="20">
+            <VerticalStackLayout Padding="20,0">
+                <Label Text="Sign In" FontSize="33" Style="{StaticResource SemiBold}"/>
+            </VerticalStackLayout>
+            <CarouselView x:Name="FormSlider" IsSwipeEnabled="False" PositionChanged="FormSlider_PositionChanged" ItemsSource="{Binding Pages}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="20,0">
+                            <VerticalStackLayout IsVisible="{Binding PageOne}">
+                                <Label Text="First Name" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Frame Style="{StaticResource EntryFrameStyle}">
+                                    <controls:RoundedEntry Keyboard="Text" MaxLength="15" Placeholder="Jhon" Style="{StaticResource StyledEntry}"/>
+                                </Frame>
+                                <Label Text="Last Name" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Frame Style="{StaticResource EntryFrameStyle}">
+                                    <controls:RoundedEntry Keyboard="Text" MaxLength="15" Placeholder="Doe" Style="{StaticResource StyledEntry}"/>
+                                </Frame>
+                                <Label Text="User Name" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Frame Style="{StaticResource EntryFrameStyle}">
+                                    <controls:RoundedEntry Keyboard="Text" MaxLength="10" Placeholder="@jhondoe" Style="{StaticResource StyledEntry}"/>
+                                </Frame>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout IsVisible="{Binding PageTwo}">
+                                <Label Text="Email" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Frame Style="{StaticResource EntryFrameStyle}">
+                                    <controls:RoundedEntry Keyboard="Email" Placeholder="jhondoe@email.com" Style="{StaticResource StyledEntry}"/>
+                                </Frame>
+                                <Label Text="Date Of Birth" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Frame Style="{StaticResource EntryFrameStyle}">
+                                    <controls:RoundedDatePicker x:Name="BirthDatePicker" Format="dd/MM/yyyy" Style="{StaticResource StyledDatePicker}" MaximumDate="{x:Static sys:DateTime.Now}"/>
+                                </Frame>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout IsVisible="{Binding PageThree}" Spacing="20">
+                                <Label Text="Agreement" Style="{StaticResource Medium}" FontSize="22"/>
+                                <Label Text="By continuing, you agree to our Terms and Conditions and Privacy Policy. Please make sure you read and understand how we collect, use, and protect your information. Your use of this app means you accept these terms." Style="{StaticResource Regular}" FontSize="16"/>
+                                <HorizontalStackLayout VerticalOptions="Center" Spacing="5">
+                                    <CheckBox x:Name="AgreementChecked" CheckedChanged="AgreementCheckBox_CheckedChanged"/>
+                                    <Label Text="I agree to the terms and conditions" VerticalTextAlignment="Center" Style="{StaticResource Regular}" FontSize="16"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <HorizontalStackLayout HorizontalOptions="End" Spacing="10" Padding="20,0">
+                <Button x:Name="BackButton" Text="Back" FontSize="20" CornerRadius="30" WidthRequest="100" BackgroundColor="{StaticResource Gray100}" TextColor="Black" Clicked="Button_Clicked"/>
+                <Button x:Name="NextButton" Text="Next" FontSize="20" CornerRadius="30" WidthRequest="100" BackgroundColor="{StaticResource Primary}" TextColor="White" Clicked="Button_Clicked_1" />
+            </HorizontalStackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

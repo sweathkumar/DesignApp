@@ -3,18 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DesignApp.MainPage">
 
-    <ContentView Margin="20,40,20,0">
-        <StackLayout>
-            <Border HeightRequest="57" BackgroundColor="{StaticResource Secondary}" StrokeThickness="0">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10"></RoundRectangle>
-                </Border.StrokeShape>
-                <Grid ColumnDefinitions="*,*,*" Padding="10">
-                    <Image Grid.Column="0" HorizontalOptions="Start" Source="logo.png" HeightRequest="33" WidthRequest="33"/>
-                    <Label Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="22" Text="Design" Style="{StaticResource SemiBold}" TextColor="{StaticResource PrimaryDarkText}"/>
-                    <ImageButton Grid.Column="2" HorizontalOptions="End" Source="profileicon.png" HeightRequest="33" WidthRequest="33"/>
-                </Grid>
-            </Border>
-        </StackLayout>
-    </ContentView>
+    <ScrollView x:Name="scrollView" Padding="20,50">
+
+        <VerticalStackLayout Spacing="20">
+
+            <Label Text="Sign In" FontSize="33" />
+
+            <Entry Placeholder="First Name" Keyboard="Text" />
+
+            <Entry Placeholder="Last Name" Keyboard="Text" />
+
+            <Entry Placeholder="Phone Number" Keyboard="Telephone" />
+
+            <Entry Placeholder="Phone Number 2" Keyboard="Telephone" />
+
+            <Entry Placeholder="Extra Field 1" Keyboard="Text" />
+
+            <Entry Placeholder="Extra Field 2" Keyboard="Text" />
+
+            <Entry Placeholder="Extra Field 3" Keyboard="Text" />
+
+            <Entry Placeholder="Extra Field 4" Keyboard="Text" />
+
+            <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                <Button Text="Back" WidthRequest="100" />
+                <Button Text="Next" WidthRequest="100" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

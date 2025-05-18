@@ -76,8 +76,6 @@
         <Setter Property="FontFamily" Value="InterBlackItalic" />
     </Style>
 
-    
-
     <Style TargetType="Border">
         <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
         <Setter Property="StrokeShape" Value="Rectangle"/>
@@ -136,7 +134,8 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0,0"/>
         <Setter Property="MinimumHeightRequest" Value="44"/>
         <Setter Property="MinimumWidthRequest" Value="44"/>
         <Setter Property="VisualStateManager.VisualStateGroups">
@@ -525,6 +524,14 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="TextColor" 
             Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Primary}}" />
+    </Style>
+
+    <Style TargetType="DatePicker" x:Key="StyledDatePicker">
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light='Black', Dark='White'}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="HeightRequest" Value="22"/>
+        <Setter Property="Margin" Value="0"/>
     </Style>
 
 </ResourceDictionary>

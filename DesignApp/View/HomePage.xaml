@@ -4,7 +4,7 @@
              x:Class="DesignApp.View.HomePage"
              Title="HomePage">
 
-    <Grid RowDefinitions="Auto,*" Margin="20,50,20,0">
+    <Grid RowDefinitions="Auto,*" Padding="20,50,20,0">
         <!-- Top Bar -->
         <Border Grid.Row="0" HeightRequest="57" BackgroundColor="{StaticResource Secondary}" StrokeThickness="0">
             <Border.StrokeShape>
