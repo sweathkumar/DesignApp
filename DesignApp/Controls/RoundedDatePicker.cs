@@ -11,8 +11,6 @@ namespace DesignApp.Controls
         public RoundedDatePicker()
         {
             this.BackgroundColor = Colors.Transparent;
-            this.TextColor = Colors.Black;
-            this.FontSize = 16;
         }
     }
 }

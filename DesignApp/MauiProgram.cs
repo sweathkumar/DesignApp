@@ -58,6 +58,18 @@ namespace DesignApp
         }
     });
 #endif
+            builder.ConfigureLifecycleEvents(events =>
+            {
+#if ANDROID
+    events.AddAndroid(android => android
+        .OnCreate((activity, bundle) =>
+        {
+            activity.Window.SetFlags(
+                Android.Views.WindowManagerFlags.LayoutNoLimits,
+                Android.Views.WindowManagerFlags.LayoutNoLimits);
+        }));
+#endif
+            });
 
 
             return builder.Build();

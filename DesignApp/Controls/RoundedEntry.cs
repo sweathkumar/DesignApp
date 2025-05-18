@@ -11,7 +11,6 @@ namespace DesignApp.Controls
         public RoundedEntry()
         {
             this.BackgroundColor = Colors.Transparent;
-            this.TextColor = Colors.Black;
         }
     }
 }

@@ -258,7 +258,7 @@
 
     <Style TargetType="Entry" x:Key="StyledEntry">
         <Setter Property="BackgroundColor" Value="Transparent"/>
-        <Setter Property="TextColor" Value="{AppThemeBinding Light='Black', Dark='White'}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
         <Setter Property="PlaceholderColor" Value="Gray"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="HeightRequest" Value="22"/>
@@ -528,7 +528,7 @@
 
     <Style TargetType="DatePicker" x:Key="StyledDatePicker">
         <Setter Property="BackgroundColor" Value="Transparent"/>
-        <Setter Property="TextColor" Value="{AppThemeBinding Light='Black', Dark='White'}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="HeightRequest" Value="22"/>
         <Setter Property="Margin" Value="0"/>

@@ -3,40 +3,67 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:DesignApp.Controls"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:DesignApp.View"
              x:Class="DesignApp.View.Login"
+             NavigationPage.HasNavigationBar="False"
              Title="Login">
-    <ScrollView>
-        <StackLayout VerticalOptions="Center" Padding="0,0" Spacing="20">
-            <VerticalStackLayout Padding="20,0">
-                <Label Text="Sign In" FontSize="33" Style="{StaticResource SemiBold}"/>
-            </VerticalStackLayout>
+    <Grid RowDefinitions="Auto,*,Auto" Padding="0,50,0,30">
+        <VerticalStackLayout Grid.Row="0" Padding="10,0" Spacing="20" IsVisible="{Binding SignUpLayout}">
+            <Label Text="Sign In" FontSize="33" Padding="10,0" Style="{StaticResource SemiBold}"/>
+            <Entry x:Name="DummyEntry" IsVisible="False" />
             <CarouselView x:Name="FormSlider" IsSwipeEnabled="False" PositionChanged="FormSlider_PositionChanged" ItemsSource="{Binding Pages}">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
-                        <VerticalStackLayout Padding="20,0">
+                        <VerticalStackLayout Padding="10,0">
                             <VerticalStackLayout IsVisible="{Binding PageOne}">
-                                <Label Text="First Name" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Label Text="First Name" FontSize="20" Style="{StaticResource Regular}"/>
                                 <Frame Style="{StaticResource EntryFrameStyle}">
-                                    <controls:RoundedEntry Keyboard="Text" MaxLength="15" Placeholder="Jhon" Style="{StaticResource StyledEntry}"/>
+                                    <controls:RoundedEntry Keyboard="Text" MaxLength="15" Placeholder="John" Style="{StaticResource StyledEntry}" Text="{Binding FirstName}" />
                                 </Frame>
-                                <Label Text="Last Name" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Label Text="* Field Should not be Empty" TextColor="Red" IsVisible="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=FirstNameNull}" />
+
+                                <Label Text="Last Name" FontSize="20" Style="{StaticResource Regular}"/>
                                 <Frame Style="{StaticResource EntryFrameStyle}">
-                                    <controls:RoundedEntry Keyboard="Text" MaxLength="15" Placeholder="Doe" Style="{StaticResource StyledEntry}"/>
+                                    <controls:RoundedEntry Keyboard="Text" MaxLength="15" Placeholder="Doe" Style="{StaticResource StyledEntry}" Text="{Binding LastName}" />
                                 </Frame>
-                                <Label Text="User Name" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Label Text="* Field Should not be Empty" TextColor="Red" IsVisible="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=LastNameNull}" />
+
+                                <Label Text="User Name" FontSize="20" Style="{StaticResource Regular}"/>
                                 <Frame Style="{StaticResource EntryFrameStyle}">
-                                    <controls:RoundedEntry Keyboard="Text" MaxLength="10" Placeholder="@jhondoe" Style="{StaticResource StyledEntry}"/>
+                                    <controls:RoundedEntry Keyboard="Text" MaxLength="10" Placeholder="@jhondoe" Style="{StaticResource StyledEntry}" Text="{Binding UserName}" />
                                 </Frame>
+                                <Label Text="* Field Should not be Empty" TextColor="Red" IsVisible="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=UserNameNull}" />
+
+                                <Label Text="Email" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Frame Style="{StaticResource EntryFrameStyle}">
+                                    <controls:RoundedEntry Keyboard="Email" Placeholder="jhondoe@email.com" Style="{StaticResource StyledEntry}" Text="{Binding Email}" />
+                                </Frame>
+                                <Label Text="* Field Should not be Empty" TextColor="Red" IsVisible="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=EmailNull}" />
+
                             </VerticalStackLayout>
+
                             <VerticalStackLayout IsVisible="{Binding PageTwo}">
-                                <Label Text="Email" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Label Text="Date Of Birth" FontSize="20" Style="{StaticResource Regular}"/>
                                 <Frame Style="{StaticResource EntryFrameStyle}">
-                                    <controls:RoundedEntry Keyboard="Email" Placeholder="jhondoe@email.com" Style="{StaticResource StyledEntry}"/>
+                                    <controls:RoundedDatePicker Format="dd/MM/yyyy" Style="{StaticResource StyledDatePicker}" MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding DateOfBirth}" />
                                 </Frame>
-                                <Label Text="Date Of Birth" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Label Text="* Field Should not be Empty" TextColor="Red" IsVisible="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=DobNull}" />
+                                <Label Text="Passcode" FontSize="20" Style="{StaticResource Regular}"/>
                                 <Frame Style="{StaticResource EntryFrameStyle}">
-                                    <controls:RoundedDatePicker x:Name="BirthDatePicker" Format="dd/MM/yyyy" Style="{StaticResource StyledDatePicker}" MaximumDate="{x:Static sys:DateTime.Now}"/>
+                                    <controls:RoundedEntry Keyboard="Numeric" MaxLength="4" Placeholder="XXXX" IsPassword="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=ShowPassword}"  Style="{StaticResource StyledEntry}" Text="{Binding Passcode}" />
                                 </Frame>
+                                <Label Text="* Field Should not be Empty" TextColor="Red" IsVisible="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=PassNull}" />
+                                <Label Text="* PassCode Not Matching" TextColor="Red" IsVisible="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=Mismatch}" />
+                                <Label Text="Confirm PassCode" FontSize="20" Style="{StaticResource Regular}"/>
+                                <Frame Style="{StaticResource EntryFrameStyle}">
+                                    <controls:RoundedEntry Keyboard="Numeric" MaxLength="4" Placeholder="XXXX" IsPassword="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=ShowPassword}" Style="{StaticResource StyledEntry}" Text="{Binding Passcodeconfirm}" />
+                                </Frame>
+                                <Label Text="* Field Should not be Empty" TextColor="Red" IsVisible="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=PassConfirmNull}" />
+                                <Label Text="* PassCode Not Matching" TextColor="Red" IsVisible="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=Mismatch}" />
+                                <HorizontalStackLayout VerticalOptions="End" Spacing="5">
+                                    <CheckBox x:Name="PasswordChk" CheckedChanged="PasswordChk_CheckedChanged"/>
+                                    <Label Text="Show Password" VerticalTextAlignment="Center" FontSize="16" Style="{StaticResource Regular}" />
+                                </HorizontalStackLayout>
                             </VerticalStackLayout>
                             <VerticalStackLayout IsVisible="{Binding PageThree}" Spacing="20">
                                 <Label Text="Agreement" Style="{StaticResource Medium}" FontSize="22"/>
@@ -50,11 +77,26 @@
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
+        </VerticalStackLayout>
+        <HorizontalStackLayout Grid.Row="2" HorizontalOptions="End" Spacing="10" Padding="20,0" IsVisible="{Binding SignUpLayout}">
+            <Button x:Name="BackButton" Text="Back" FontSize="20" CornerRadius="30" WidthRequest="100" BackgroundColor="{StaticResource Gray100}" TextColor="Black" Clicked="Button_Clicked"/>
+            <Button x:Name="NextButton" Text="Next" FontSize="20" CornerRadius="30" WidthRequest="100" BackgroundColor="{StaticResource Primary}" TextColor="White" Clicked="Button_Clicked_1" />
+        </HorizontalStackLayout>
 
-            <HorizontalStackLayout HorizontalOptions="End" Spacing="10" Padding="20,0">
-                <Button x:Name="BackButton" Text="Back" FontSize="20" CornerRadius="30" WidthRequest="100" BackgroundColor="{StaticResource Gray100}" TextColor="Black" Clicked="Button_Clicked"/>
-                <Button x:Name="NextButton" Text="Next" FontSize="20" CornerRadius="30" WidthRequest="100" BackgroundColor="{StaticResource Primary}" TextColor="White" Clicked="Button_Clicked_1" />
-            </HorizontalStackLayout>
-        </StackLayout>
-    </ScrollView>
+        <VerticalStackLayout Grid.Row="0" Padding="10,0" Spacing="20" IsVisible="{Binding LoginLayout}">
+            <Label Text="Log In" FontSize="33" Padding="10,0" Style="{StaticResource SemiBold}"/>
+            <VerticalStackLayout Padding="10,0">
+                <Label Text="Enter Pass Code" FontSize="20" Style="{StaticResource Regular}"/>
+                <Frame Style="{StaticResource EntryFrameStyle}">
+                    <controls:RoundedEntry x:Name="PassCode" Keyboard="Numeric" MaxLength="4" TextChanged="PassCode_TextChanged" Placeholder="XXXX" IsPassword="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=ShowPassword}" Style="{StaticResource StyledEntry}" Text="{Binding Passcodeconfirm}" />
+                </Frame>
+                <Label x:Name="PasscodeErrorLabel" Text="* Incorrect PassCode" TextColor="Red" IsVisible="False" />
+
+                <HorizontalStackLayout VerticalOptions="End" Spacing="5">
+                    <CheckBox x:Name="PassCodeLogin" CheckedChanged="PasswordChk_CheckedChanged"/>
+                    <Label Text="Show Password" VerticalTextAlignment="Center" FontSize="16" Style="{StaticResource Regular}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
