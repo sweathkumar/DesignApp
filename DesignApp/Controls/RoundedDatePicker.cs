@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DesignApp.Controls
 {
-    public class RoundedEntry : Entry
+    internal class RoundedDatePicker : DatePicker
     {
-        public RoundedEntry()
+        public RoundedDatePicker()
         {
             this.BackgroundColor = Colors.Transparent;
         }

@@ -1,4 +1,5 @@
 using DesignApp.ViewModel;
+using static DesignApp.Model.SystemPreferances;
 
 namespace DesignApp.View;
 
@@ -11,16 +12,10 @@ public partial class DesignPage : ContentPage
         ViewModel = new DesignViewModel();
         this.BindingContext = ViewModel;
     }
-    private void ImageButton_Clicked(object sender, EventArgs e)
-    {
-        if (Application.Current.MainPage is TabbedPage tabbedPage)
-        {
-            tabbedPage.CurrentPage = tabbedPage.Children[3];
-        }
-    }
 
-    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    private async void ImageButton_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ProfilePage());
+        NavigationState.LastTabRoute = Shell.Current.CurrentItem.Route;
+        await Shell.Current.GoToAsync("///Settings");
     }
 }

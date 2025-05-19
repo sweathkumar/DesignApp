@@ -3,18 +3,182 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DesignApp.MainPage">
 
-    <ContentView Margin="20,40,20,0">
-        <StackLayout>
-            <Border HeightRequest="57" BackgroundColor="{StaticResource Secondary}" StrokeThickness="0">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="10"></RoundRectangle>
-                </Border.StrokeShape>
-                <Grid ColumnDefinitions="*,*,*" Padding="10">
-                    <Image Grid.Column="0" HorizontalOptions="Start" Source="logo.png" HeightRequest="33" WidthRequest="33"/>
-                    <Label Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="22" Text="Design" Style="{StaticResource SemiBold}" TextColor="{StaticResource PrimaryDarkText}"/>
-                    <ImageButton Grid.Column="2" HorizontalOptions="End" Source="profileicon.png" HeightRequest="33" WidthRequest="33"/>
-                </Grid>
-            </Border>
-        </StackLayout>
-    </ContentView>
+    <ScrollView x:Name="scrollView" Padding="0,50,0,0">
+        <VerticalStackLayout>
+            <Grid ColumnDefinitions="Auto,*,Auto"  Padding="20,10">
+                <Label Grid.Column="0" Text="Home" Style="{StaticResource Bold}" FontSize="30"/>
+                <ImageButton Grid.Column="2" Source="menu.png" HeightRequest="22" WidthRequest="22"/>
+            </Grid>
+            <Border Padding="20,0"/>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="Top Picks For You" Padding="20,10,20,0" FontSize="22" Style="{StaticResource SemiBold}"/>
+                <Label Text="Suggested List" Padding="20,0" FontSize="18" Style="{StaticResource Regular}" TextColor="{StaticResource Gray400}"/>
+                <ScrollView Orientation="Horizontal" HeightRequest="300" Padding="20,10,0,0" HorizontalScrollBarVisibility="Never">
+                    <HorizontalStackLayout Spacing="10">
+                        <!-- Repeat this block as needed -->
+                        <Frame Padding="0">
+                            <VerticalStackLayout HeightRequest="300" WidthRequest="200">
+                                <StackLayout BackgroundColor="Red" HeightRequest="240" />
+                                <StackLayout BackgroundColor="Brown" HeightRequest="60" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Padding="0">
+                            <VerticalStackLayout HeightRequest="300" WidthRequest="200">
+                                <StackLayout BackgroundColor="Red" HeightRequest="240" />
+                                <StackLayout BackgroundColor="Brown" HeightRequest="60" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Padding="0">
+                            <VerticalStackLayout HeightRequest="300" WidthRequest="200">
+                                <StackLayout BackgroundColor="Red" HeightRequest="240" />
+                                <StackLayout BackgroundColor="Brown" HeightRequest="60" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Padding="0">
+                            <VerticalStackLayout HeightRequest="300" WidthRequest="200">
+                                <StackLayout BackgroundColor="Red" HeightRequest="240" />
+                                <StackLayout BackgroundColor="Brown" HeightRequest="60" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Padding="0">
+                            <VerticalStackLayout HeightRequest="300" WidthRequest="200">
+                                <StackLayout BackgroundColor="Red" HeightRequest="240" />
+                                <StackLayout BackgroundColor="Brown" HeightRequest="60" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </HorizontalStackLayout>
+                </ScrollView>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="Recently Viewed" Padding="20,10,20,0" FontSize="22" Style="{StaticResource SemiBold}"/>
+                <ScrollView Orientation="Horizontal" Padding="20,10,0,0" HorizontalScrollBarVisibility="Never">
+                    <HorizontalStackLayout Spacing="10">
+                        <VerticalStackLayout>
+                            <!-- Repeat this block as needed -->
+                            <Border Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Gray400}" >
+                                </VerticalStackLayout>
+                            </Border>
+                            <Label Text="English" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <!-- Repeat this block as needed -->
+                            <Border Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Gray400}" >
+                                </VerticalStackLayout>
+                            </Border>
+                            <Label Text="English" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <!-- Repeat this block as needed -->
+                            <Border Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Gray400}" >
+                                </VerticalStackLayout>
+                            </Border>
+                            <Label Text="English" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <!-- Repeat this block as needed -->
+                            <Border Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Gray400}" >
+                                </VerticalStackLayout>
+                            </Border>
+                            <Label Text="English" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <!-- Repeat this block as needed -->
+                            <Border Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Gray400}" >
+                                </VerticalStackLayout>
+                            </Border>
+                            <Label Text="English" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
+
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </ScrollView>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="Recently Added" Padding="20,10,20,0" FontSize="22" Style="{StaticResource SemiBold}"/>
+                <ScrollView Orientation="Horizontal" Padding="20,10,0,0" HorizontalScrollBarVisibility="Never">
+                    <HorizontalStackLayout Spacing="10">
+                        <VerticalStackLayout>
+                            <!-- Repeat this block as needed -->
+                            <Border Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Primary}" >
+                                </VerticalStackLayout>
+                            </Border>
+                            <Label Text="New Fund" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <!-- Repeat this block as needed -->
+                            <Border Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Primary}" >
+                                </VerticalStackLayout>
+                            </Border>
+                            <Label Text="New Fund" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <!-- Repeat this block as needed -->
+                            <Border Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Primary}" >
+                                </VerticalStackLayout>
+                            </Border>
+                            <Label Text="New Fund" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <!-- Repeat this block as needed -->
+                            <Border Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Primary}" >
+                                </VerticalStackLayout>
+                            </Border>
+                            <Label Text="New Fund" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <!-- Repeat this block as needed -->
+                            <Border Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Primary}" >
+                                </VerticalStackLayout>
+                            </Border>
+                            <Label Text="New Fund" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
+
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </ScrollView>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

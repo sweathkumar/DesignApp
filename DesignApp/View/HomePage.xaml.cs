@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.ObjectModel;
+using static DesignApp.Model.SystemPreferances;
 
 namespace DesignApp.View;
 
@@ -11,31 +12,9 @@ public partial class HomePage : ContentPage
         BindingContext = this;
 	}
 
-    protected override void OnAppearing()
+    private async void ImageButton_Clicked(object sender, EventArgs e)
     {
-        base.OnAppearing();
-        Device.StartTimer(TimeSpan.FromSeconds(3), () =>
-        {
-            if (MyCarousel.ItemsSource is IList items && items.Count > 0)
-            {
-                var nextIndex = (MyCarousel.Position + 1) % items.Count;
-                MyCarousel.Position = nextIndex;
-            }
-            return true; // repeat timer
-        });
-    }
-
-
-    private void ImageButton_Clicked(object sender, EventArgs e)
-    {
-        if (Application.Current.MainPage is TabbedPage tabbedPage)
-        {
-            tabbedPage.CurrentPage = tabbedPage.Children[3];
-        }
-    }
-
-    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
-    {
-        await Navigation.PushAsync(new ProfilePage());
+        NavigationState.LastTabRoute = Shell.Current.CurrentItem.Route;
+        await Shell.Current.GoToAsync("///Settings");
     }
 }

@@ -49,7 +49,28 @@ namespace DesignApp
             handler.PlatformView.SetPadding(0, 0, 0, 0); // Removes default padding
         }
     });
+    Microsoft.Maui.Handlers.DatePickerHandler.Mapper.AppendToMapping("NoUnderline", (handler, view) =>
+    {
+        if (view is DesignApp.Controls.RoundedDatePicker)
+        {
+            handler.PlatformView.Background = null; // Removes underline
+            handler.PlatformView.SetPadding(0, 0, 0, 0); // Optional: remove padding
+        }
+    });
 #endif
+            builder.ConfigureLifecycleEvents(events =>
+            {
+#if ANDROID
+    events.AddAndroid(android => android
+        .OnCreate((activity, bundle) =>
+        {
+            activity.Window.SetFlags(
+                Android.Views.WindowManagerFlags.LayoutNoLimits,
+                Android.Views.WindowManagerFlags.LayoutNoLimits);
+        }));
+#endif
+            });
+
 
             return builder.Build();
         }
