@@ -11,16 +11,14 @@ public partial class DesignPage : ContentPage
         ViewModel = new DesignViewModel();
         this.BindingContext = ViewModel;
     }
-    private void ImageButton_Clicked(object sender, EventArgs e)
+
+    private void ToolbarItem_Clicked(object sender, EventArgs e)
     {
-        if (Application.Current.MainPage is TabbedPage tabbedPage)
-        {
-            tabbedPage.CurrentPage = tabbedPage.Children[3];
-        }
+
     }
 
-    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    private void ImageButton_Clicked_1(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ProfilePage());
+        ToolbarItem_Clicked(sender, e);
     }
 }

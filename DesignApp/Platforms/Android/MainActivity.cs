@@ -35,6 +35,23 @@ namespace DesignApp
                 Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
             }
 
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+            {
+                var flags = (int)Window.DecorView.SystemUiVisibility;
+                var currentTheme = AppInfo.RequestedTheme;
+                if (currentTheme == AppTheme.Light)
+                {
+                    // Dark icons on light background
+                    flags |= (int)SystemUiFlags.LightStatusBar;
+                }
+                else
+                {
+                    // Light icons on dark background
+                    flags &= ~(int)SystemUiFlags.LightStatusBar;
+                }
+
+                Window.DecorView.SystemUiVisibility = (StatusBarVisibility)flags;
+            }
         }
     }
 }

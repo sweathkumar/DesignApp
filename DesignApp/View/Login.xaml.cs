@@ -193,7 +193,7 @@ public partial class Login : ContentPage, INotifyPropertyChanged
         UpdateButtons(e.CurrentPosition);
     }
 
-    private void PassCode_TextChanged(object sender, TextChangedEventArgs e)
+    private async void PassCode_TextChanged(object sender, TextChangedEventArgs e)
     {
         var entry = sender as Entry;
         if (entry != null && entry.Text.Length == 4)
@@ -203,7 +203,8 @@ public partial class Login : ContentPage, INotifyPropertyChanged
 
             if (enteredPasscode == savedPasscode)
             {
-                // Passcode matches - navigate to AppShell
+                PasscodeSuccessLable.IsVisible = true;
+                await Task.Delay(1000);
                 Application.Current.MainPage = new AppShell();
             }
             else
@@ -243,43 +244,4 @@ public partial class Login : ContentPage, INotifyPropertyChanged
     {
         ShowPassword = !e.Value;
     }
-
-    //bool HasEmptyRequiredFields(IEnumerable<LoginModel> pages, int no)
-    //{
-    //    foreach (var page in pages)
-    //    {
-    //        // Example for PageOne fields
-    //        if (page.PageOne && no == 0)
-    //        {
-    //            FirstNameNull = string.IsNullOrWhiteSpace(page.FirstName);
-    //            LastNameNull = string.IsNullOrWhiteSpace(page.LastName);
-    //            UserNameNull = string.IsNullOrWhiteSpace(page.UserName);
-    //            EmailNull = string.IsNullOrWhiteSpace(page.Email);
-
-    //            if (FirstNameNull || LastNameNull || UserNameNull || EmailNull)
-    //                return true; // Found empty required field
-    //            else
-    //                return false;
-    //        }
-
-    //        // Example for PageTwo fields
-    //        if (page.PageTwo && no == 1)
-    //        {
-    //            DobNull = page.DateOfBirth.Date == DateTime.Now.Date ? true : false;
-    //            PassNull = string.IsNullOrWhiteSpace(page.Passcode);
-    //            PassConfirmNull = string.IsNullOrWhiteSpace(page.Passcodeconfirm);
-    //            if (page.Passcode != page.Passcodeconfirm)
-    //            {
-    //                Mismatch = true;
-    //            }
-    //            if (DobNull || PassNull || PassConfirmNull)
-    //            {
-    //                return true;
-    //            }
-    //        }
-    //    }
-
-    //    return false; // All required fields have values
-    //}
-
 }

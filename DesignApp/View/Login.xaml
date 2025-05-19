@@ -91,7 +91,7 @@
                     <controls:RoundedEntry x:Name="PassCode" Keyboard="Numeric" MaxLength="4" TextChanged="PassCode_TextChanged" Placeholder="XXXX" IsPassword="{Binding Source={RelativeSource AncestorType={x:Type local:Login}}, Path=ShowPassword}" Style="{StaticResource StyledEntry}" Text="{Binding Passcodeconfirm}" />
                 </Frame>
                 <Label x:Name="PasscodeErrorLabel" Text="* Incorrect PassCode" TextColor="Red" IsVisible="False" />
-
+                <Label x:Name="PasscodeSuccessLable" Text="Login Success" TextColor="Green" IsVisible="False"/>
                 <HorizontalStackLayout VerticalOptions="End" Spacing="5">
                     <CheckBox x:Name="PassCodeLogin" CheckedChanged="PasswordChk_CheckedChanged"/>
                     <Label Text="Show Password" VerticalTextAlignment="Center" FontSize="16" Style="{StaticResource Regular}" />

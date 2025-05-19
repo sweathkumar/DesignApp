@@ -3,22 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DesignApp.View.DesignPage"
              Title="DesignPage">
-    <Grid RowDefinitions="Auto,Auto,*" Margin="20,50,20,0" RowSpacing="20">
-        <Border Grid.Row="0" HeightRequest="57" BackgroundColor="{StaticResource Secondary}" StrokeThickness="0">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="10"></RoundRectangle>
-            </Border.StrokeShape>
-            <Grid ColumnDefinitions="*,*,*" Padding="10">
-                <Image Grid.Column="0" HorizontalOptions="Start" Source="logo.png" HeightRequest="33" WidthRequest="33"/>
-                <Label Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="22" Text="Design" Style="{StaticResource SemiBold}" TextColor="{StaticResource PrimaryDarkText}"/>
-                <Image Grid.Column="2" HorizontalOptions="End" Source="profileicon.png" HeightRequest="33" WidthRequest="33">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                    </Image.GestureRecognizers>
-                </Image>
-            </Grid>
-        </Border>
-        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*" ColumnSpacing="10">
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+        <!-- Fixed Header -->
+        <Grid Row="0" Padding="20,50,20,10" BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Collections" Style="{StaticResource Bold}" TextColor="Black" FontSize="30"/>
+            <ImageButton Grid.Column="2" Source="settings.png" HeightRequest="22" WidthRequest="22"/>
+        </Grid>
+        <Border Grid.Row="1" BackgroundColor="{StaticResource Gray100}"/>
+        <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*" ColumnSpacing="10" Padding="20,10">
                 <Frame Grid.Column="0" Padding="8,8" CornerRadius="20" BorderColor="{StaticResource Primary}" BackgroundColor="{StaticResource Primary}">
                     <Label Text="All" FontSize="14" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Style="{StaticResource Medium}" TextColor="White"/>
                 </Frame>
@@ -32,7 +29,7 @@
                     <Label Text="Popular" FontSize="14" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Style="{StaticResource Medium}" TextColor="{StaticResource Primary}"/>
                 </Frame>
             </Grid>
-        <ScrollView Grid.Row="2" VerticalScrollBarVisibility="Never">
+        <ScrollView Grid.Row="3" VerticalScrollBarVisibility="Never" Padding="20,0">
             <VerticalStackLayout Spacing="10" Padding="3,0">
                 <CollectionView x:Name="CardsCollectionView" ItemsSource="{Binding Cards}">
                     <CollectionView.ItemsLayout>
