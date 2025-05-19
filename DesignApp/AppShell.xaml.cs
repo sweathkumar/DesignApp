@@ -8,6 +8,10 @@ namespace DesignApp
         public AppShell()
         {
             InitializeComponent();
+            // Get saved theme (default to Light if not set)
+            string savedTheme = Preferences.Get("AppTheme", "Light");
+            // Set the app theme
+            Application.Current.UserAppTheme = savedTheme == "Dark" ? AppTheme.Dark : AppTheme.Light;
         }
         protected override void OnNavigating(ShellNavigatingEventArgs args)
         {

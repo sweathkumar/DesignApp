@@ -2,7 +2,10 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
+using iText.Kernel.Pdf;
 using Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;
+using Plugin.Fingerprint;
+using Plugin.Fingerprint.Abstractions;
 
 namespace DesignApp
 {
@@ -21,7 +24,7 @@ namespace DesignApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            CrossFingerprint.SetCurrentActivityResolver(() => this);
             // Adjust layout when keyboard appears
             Window.SetSoftInputMode(SoftInput.AdjustResize);
 
@@ -44,14 +47,15 @@ namespace DesignApp
                     // Dark icons on light background
                     flags |= (int)SystemUiFlags.LightStatusBar;
                 }
-                else
-                {
-                    // Light icons on dark background
-                    flags &= ~(int)SystemUiFlags.LightStatusBar;
-                }
 
                 Window.DecorView.SystemUiVisibility = (StatusBarVisibility)flags;
             }
+            CrossFingerprint.SetCurrentActivityResolver(() => this);
+        }
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

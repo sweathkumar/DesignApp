@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using static DesignApp.Model.SystemPreferances;
 
 namespace DesignApp.View;
 
@@ -31,5 +32,11 @@ public partial class AboutPage : ContentPage
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
         await Navigation.PushAsync(new ProfilePage());
+    }
+
+    private async void ImageButton_Clicked(object sender, EventArgs e)
+    {
+        NavigationState.LastTabRoute = Shell.Current.CurrentItem.Route;
+        await Shell.Current.GoToAsync("///Settings");
     }
 }

@@ -1,4 +1,5 @@
 using DesignApp.ViewModel;
+using static DesignApp.Model.SystemPreferances;
 
 namespace DesignApp.View;
 
@@ -12,13 +13,9 @@ public partial class DesignPage : ContentPage
         this.BindingContext = ViewModel;
     }
 
-    private void ToolbarItem_Clicked(object sender, EventArgs e)
+    private async void ImageButton_Clicked(object sender, EventArgs e)
     {
-
-    }
-
-    private void ImageButton_Clicked_1(object sender, EventArgs e)
-    {
-        ToolbarItem_Clicked(sender, e);
+        NavigationState.LastTabRoute = Shell.Current.CurrentItem.Route;
+        await Shell.Current.GoToAsync("///Settings");
     }
 }

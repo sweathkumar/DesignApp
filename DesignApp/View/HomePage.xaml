@@ -3,7 +3,7 @@
              x:Class="DesignApp.View.HomePage"
              Title="HomePage">
 
-    <Grid RowDefinitions="Auto,Auto,*">
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
 
         <!-- Fixed Header -->
         <Grid Row="0" Padding="20,50,20,10" BackgroundColor="White">
@@ -13,7 +13,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Text="Home" Style="{StaticResource Bold}" TextColor="Black" FontSize="30"/>
-            <ImageButton Grid.Column="2" Source="settings.png" HeightRequest="22" WidthRequest="22"/>
+            <ImageButton Grid.Column="2" Source="settings.png" HeightRequest="22" WidthRequest="22" Clicked="ImageButton_Clicked"/>
         </Grid>
         <Border Grid.Row="1" BackgroundColor="{StaticResource Gray100}"/>
         <!-- Scrollable Content -->
@@ -193,5 +193,6 @@
                 </VerticalStackLayout>
             </VerticalStackLayout>
         </ScrollView>
+        <Border Grid.Row="3" BackgroundColor="{StaticResource Gray900}" StrokeThickness="1"/>
     </Grid>
 </ContentPage>

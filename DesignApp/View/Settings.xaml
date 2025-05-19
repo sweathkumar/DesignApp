@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DesignApp.View.Settings"
+             xmlns:controls="clr-namespace:DesignApp.Controls"
+             Title="Settings">
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+        <!-- Fixed Header -->
+        <HorizontalStackLayout Spacing="20" Padding="20,50,20,10" BackgroundColor="White">
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </HorizontalStackLayout.GestureRecognizers>
+            <ImageButton Source="back.png" HeightRequest="22" WidthRequest="22"/>
+            <Label Text="Settings" Style="{StaticResource Medium}" TextColor="Black" FontSize="20"/>
+        </HorizontalStackLayout>
+        <Border Grid.Row="1" BackgroundColor="{StaticResource Gray100}"/>
+        <ScrollView Grid.Row="2">
+            <StackLayout Spacing="10" Padding="20,20">
+                <Label Text="Theming" FontSize="18" Style="{StaticResource SemiBold}" TextColor="{StaticResource Primary}"/>
+                <VerticalStackLayout>
+                    <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Set App Theme to Dark" FontSize="18"/>
+                        <Label x:Name="ThemeSwitch" Grid.Row="1" Grid.Column="0" Text="Light" FontSize="14"/>
+                        <Switch x:Name="ThemeSwitchToggle" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Toggled="Switch_Toggled"/>
+                    </Grid>
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Enable Lock Screen" FontSize="18"/>
+                        <Label x:Name="lockToggle" Grid.Row="1" Grid.Column="0" Text="Disabled" FontSize="14"/>
+                        <Switch x:Name="lockToggleSwitch" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Toggled="lockToggleSwitch_Toggled"/>
+                    </Grid>
+                </VerticalStackLayout>
+                <VerticalStackLayout x:Name="LockSettings">
+                    <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                        </Grid.GestureRecognizers>
+                        <Label Grid.Row="0" Grid.Column="0" Text="Additional Lock Settings" FontSize="18"/>
+                        <Label Grid.Row="1" Grid.Column="0" Text="Set New or Reset Old Password" FontSize="14"/>
+                        <Image Grid.Row="0" Grid.Column="2" x:Name="AdditionalArrow" Grid.ColumnSpan="2" Source="back.png" HeightRequest="20" WidthRequest="20" Rotation="180"/>
+                    </Grid>
+                </VerticalStackLayout>
+                <VerticalStackLayout x:Name="AdditionalSettings">
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,Auto">
+                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Enter Old PassCode" FontSize="18" Style="{StaticResource Regular}"/>
+                        <Frame Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource EntryFrameStyle}">
+                            <controls:RoundedEntry Keyboard="Numeric" MaxLength="4" Placeholder="XXXX" Style="{StaticResource StyledEntry}" Text="{Binding Passcodeconfirm}" />
+                        </Frame>
+                        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Reset PassCode" FontSize="18" Style="{StaticResource Regular}"/>
+                        <Frame Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource EntryFrameStyle}">
+                            <controls:RoundedEntry Keyboard="Numeric" MaxLength="4" Placeholder="XXXX" Style="{StaticResource StyledEntry}" Text="{Binding Passcodeconfirm}" />
+                        </Frame>
+                        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="Confirm New PassCode" FontSize="18" Style="{StaticResource Regular}"/>
+                        <Frame Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource EntryFrameStyle}">
+                            <controls:RoundedEntry Keyboard="Numeric" MaxLength="4" Placeholder="XXXX" Style="{StaticResource StyledEntry}" Text="{Binding Passcodeconfirm}" />
+                        </Frame>
+                        <Button Grid.Row="7" Grid.Column="1" Text="Save" WidthRequest="100" FontSize="18" CornerRadius="30"/>
+                    </Grid>
+                </VerticalStackLayout>
+                <VerticalStackLayout x:Name="AdditionalSettingsNew">
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,Auto">
+                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Enter New PassCode" FontSize="18" Style="{StaticResource Regular}"/>
+                        <Frame Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource EntryFrameStyle}">
+                            <controls:RoundedEntry Keyboard="Numeric" MaxLength="4" Placeholder="XXXX" Style="{StaticResource StyledEntry}" Text="{Binding Passcodeconfirm}" />
+                        </Frame>
+                        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Confirm New PassCode" FontSize="18" Style="{StaticResource Regular}"/>
+                        <Frame Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource EntryFrameStyle}">
+                            <controls:RoundedEntry Keyboard="Numeric" MaxLength="4" Placeholder="XXXX" Style="{StaticResource StyledEntry}" Text="{Binding Passcodeconfirm}" />
+                        </Frame>
+                        <Button Grid.Row="5" Grid.Column="1" Text="Save" WidthRequest="100" FontSize="18" CornerRadius="30"/>
+                    </Grid>
+                </VerticalStackLayout>
+                <Label Text="User Preference" FontSize="18" Style="{StaticResource SemiBold}" TextColor="{StaticResource Primary}"/>
+                <VerticalStackLayout>
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Label Text="Log Out" FontSize="18" Style="{StaticResource SemiBold}" TextColor="{StaticResource Red}"></Label>
+                </VerticalStackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

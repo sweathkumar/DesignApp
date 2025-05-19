@@ -4,19 +4,19 @@
              xmlns:controls="clr-namespace:DesignApp.Controls"
              x:Class="DesignApp.View.ProfilePage"
              Title="ProfilePage">
-    <Grid RowDefinitions="Auto,*">
-        <Grid RowDefinitions='*,Auto' Grid.Row="0" Padding="20,10" BackgroundColor="{StaticResource Secondary}">
-            <StackLayout Grid.Row="0" HeightRequest="50"></StackLayout>
-            <Grid ColumnDefinitions="Auto,Auto,*,Auto" Grid.Row="1" ColumnSpacing="10">
-                <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
-                </Grid.GestureRecognizers>
-                <Image Grid.Column="0" Source="back" HeightRequest="30" WidthRequest="30"/>
-                <Label Grid.Column="1" Text="Profie Page" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" Style="{StaticResource Medium}" TextColor="Black"/>
-                <ImageButton Grid.Column="3" Source="settings" HeightRequest="30" WidthRequest="30"/>
-            </Grid>
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+        <!-- Fixed Header -->
+        <Grid Row="0" Padding="20,50,20,10" BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Profile" Style="{StaticResource Bold}" TextColor="Black" FontSize="30"/>
+            <ImageButton Grid.Column="2" Source="settings.png" HeightRequest="22" WidthRequest="22" Clicked="ImageButton_Clicked"/>
         </Grid>
-        <ScrollView Grid.Row="1">
+        <Border Grid.Row="1" BackgroundColor="{StaticResource Gray100}"/>
+        <ScrollView Grid.Row="2">
             <StackLayout Spacing="10">
                 <StackLayout BackgroundColor="{StaticResource SecondaryDarkText}" HeightRequest="200">
                     <Frame Margin="100,100" CornerRadius="100" BorderColor="{StaticResource Primary}" Padding="0" HeightRequest="150" WidthRequest="150">
@@ -24,24 +24,24 @@
                     </Frame>
                 </StackLayout>
                 <StackLayout Padding="20,60" Spacing="10">
-                    <Label Text="Name" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="26" Style="{StaticResource Medium}"/>
+                    <Label Text="Name" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="22" Style="{StaticResource Medium}"/>
                     <Frame Style="{StaticResource EntryFrameStyle}">
                         <controls:RoundedEntry Placeholder="Adam Jhon" Style="{StaticResource StyledEntry}"/>
                     </Frame>
-                    <Label Text="Phone Number" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="26" Style="{StaticResource Medium}"/>
+                    <Label Text="Phone Number" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="22" Style="{StaticResource Medium}"/>
                     <Frame Style="{StaticResource EntryFrameStyle}">
                         <controls:RoundedEntry Keyboard="Telephone" MaxLength="10" Placeholder="0123456789" Style="{StaticResource StyledEntry}"/>
                     </Frame>
-                    <Label Text="Email" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="26" Style="{StaticResource Medium}"/>
+                    <Label Text="Email" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="22" Style="{StaticResource Medium}"/>
                     <Frame Style="{StaticResource EntryFrameStyle}">
                         <controls:RoundedEntry Keyboard="Email" Placeholder="example@gmail.com" Style="{StaticResource StyledEntry}"/>
                     </Frame>
-                    <Label Text="Gender" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="26" Style="{StaticResource Medium}"/>
+                    <Label Text="Gender" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="22" Style="{StaticResource Medium}"/>
                     <HorizontalStackLayout Spacing="20">
                         <RadioButton Content="Male" GroupName="Gender" Value="Male"></RadioButton>
                         <RadioButton Content="Female" GroupName="Gender" Value="Female"/>
                     </HorizontalStackLayout>
-                    <Label Text="Age" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="26" Style="{StaticResource Medium}"/>
+                    <Label Text="Age" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="22" Style="{StaticResource Medium}"/>
                     <Grid ColumnDefinitions="Auto,*,Auto">
                         <Frame Style="{StaticResource EntryFrameStyle}">
                             <controls:RoundedEntry x:Name="AgeEntry" Placeholder="Enter Age" IsReadOnly="True" InputTransparent="True" Keyboard="Numeric" MaxLength="2" Style="{StaticResource StyledEntry}"/>
@@ -49,7 +49,7 @@
                         <Stepper Grid.Column="2" WidthRequest="100" Minimum="18" ValueChanged="Stepper_ValueChanged" />
                     </Grid>
                     <Grid ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="10">
-                        <Label Grid.Column="0" Text="Achivement" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="26" Style="{StaticResource Medium}"/>
+                        <Label Grid.Column="0" Text="Achivement" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="22" Style="{StaticResource Medium}"/>
                         <Label Grid.Column="2" Text="2 / 10" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="26" Style="{StaticResource Medium}"/>
                         <Image Grid.Column="3" Source="star" HeightRequest="30" WidthRequest="30"/>
                     </Grid>
@@ -69,5 +69,6 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
+        <Border Grid.Row="3" BackgroundColor="{StaticResource Gray900}" StrokeThickness="1"/>
     </Grid>
 </ContentPage>
