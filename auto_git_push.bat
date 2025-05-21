@@ -16,3 +16,4 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 
 echo. >> git_auto_log.txt
+exit
