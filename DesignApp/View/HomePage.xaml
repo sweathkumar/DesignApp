@@ -23,31 +23,31 @@
                 <!-- Top Picks Section -->
                 <VerticalStackLayout>
                     <Label Text="Top Picks For You" FontSize="22" Margin="20,0" Style="{StaticResource SemiBold}" />
-                    <Label Text="Suggested List" FontSize="18" Margin="20,0" Style="{StaticResource Regular}" TextColor="{StaticResource Gray400}" />
+                    <Label Text="Suggested List" FontSize="18" Margin="20,5" Style="{StaticResource Regular}" TextColor="{StaticResource Gray400}" />
                     <ScrollView Orientation="Horizontal" HeightRequest="300" HorizontalScrollBarVisibility="Never">
                         <HorizontalStackLayout Spacing="10" Padding="20,0,0,0">
                             <!-- Repeat frames here -->
                             <Frame Padding="0" WidthRequest="200" HeightRequest="300">
                                 <VerticalStackLayout>
-                                    <StackLayout BackgroundColor="Red" HeightRequest="240" />
+                                    <Image Source="pica.jpg" Aspect="AspectFill" HeightRequest="240" />
                                     <StackLayout BackgroundColor="Brown" HeightRequest="60" />
                                 </VerticalStackLayout>
                             </Frame>
                             <Frame Padding="0" WidthRequest="200" HeightRequest="300">
                                 <VerticalStackLayout>
-                                    <StackLayout BackgroundColor="Red" HeightRequest="240" />
+                                    <Image Source="picb.jpg" Aspect="AspectFill" HeightRequest="240" />
                                     <StackLayout BackgroundColor="Brown" HeightRequest="60" />
                                 </VerticalStackLayout>
                             </Frame>
                             <Frame Padding="0" WidthRequest="200" HeightRequest="300">
                                 <VerticalStackLayout>
-                                    <StackLayout BackgroundColor="Red" HeightRequest="240" />
+                                    <Image Source="pic.jpg" Aspect="AspectFill" HeightRequest="240" />
                                     <StackLayout BackgroundColor="Brown" HeightRequest="60" />
                                 </VerticalStackLayout>
                             </Frame>
                             <Frame Padding="0" WidthRequest="200" HeightRequest="300">
                                 <VerticalStackLayout>
-                                    <StackLayout BackgroundColor="Red" HeightRequest="240" />
+                                    <Image Source="picd.jpg" Aspect="AspectFill" HeightRequest="240" />
                                     <StackLayout BackgroundColor="Brown" HeightRequest="60" />
                                 </VerticalStackLayout>
                             </Frame>
@@ -58,7 +58,7 @@
 
                 <!-- Recently Viewed Section -->
                 <VerticalStackLayout>
-                    <Label Text="Recently Viewed" FontSize="22" Margin="20,0" Style="{StaticResource SemiBold}" />
+                    <Label Text="Recently Viewed" FontSize="22" Margin="20,5" Style="{StaticResource SemiBold}" />
                     <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                         <HorizontalStackLayout Spacing="10" Padding="20,0,0,0">
                             <!-- Repeated vertical stack layouts with borders -->
@@ -67,7 +67,7 @@
                                     <Border.StrokeShape>
                                         <RoundRectangle CornerRadius="10" />
                                     </Border.StrokeShape>
-                                    <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Gray400}" />
+                                    <Image Source="pice.jpg" Aspect="AspectFill" HeightRequest="150" WidthRequest="150"/>
                                 </Border>
                                 <Label Text="English" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
                             </VerticalStackLayout>
@@ -76,7 +76,7 @@
                                     <Border.StrokeShape>
                                         <RoundRectangle CornerRadius="10" />
                                     </Border.StrokeShape>
-                                    <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Gray400}" />
+                                    <Image Source="picf.jpg" Aspect="AspectFill" HeightRequest="150" WidthRequest="150"/>
                                 </Border>
                                 <Label Text="English" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
                             </VerticalStackLayout>
@@ -85,7 +85,7 @@
                                     <Border.StrokeShape>
                                         <RoundRectangle CornerRadius="10" />
                                     </Border.StrokeShape>
-                                    <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Gray400}" />
+                                    <Image Source="picg.jpg" Aspect="AspectFill" HeightRequest="150" WidthRequest="150"/>
                                 </Border>
                                 <Label Text="English" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
                             </VerticalStackLayout>
@@ -94,7 +94,7 @@
                                     <Border.StrokeShape>
                                         <RoundRectangle CornerRadius="10" />
                                     </Border.StrokeShape>
-                                    <VerticalStackLayout HeightRequest="150" WidthRequest="150" BackgroundColor="{StaticResource Gray400}" />
+                                    <Image Source="pich.jpg" Aspect="AspectFill" HeightRequest="150" WidthRequest="150"/>
                                 </Border>
                                 <Label Text="English" FontSize="18" Style="{StaticResource Medium}" Margin="0,5"/>
                             </VerticalStackLayout>
@@ -159,9 +159,9 @@
                 </VerticalStackLayout>
                 <VerticalStackLayout>
                     <Label Text="Top Grossing" FontSize="22" Margin="20,0" Style="{StaticResource SemiBold}" />
-                    <Label Text="Suggested List" FontSize="18" Margin="20,0" Style="{StaticResource Regular}" TextColor="{StaticResource Gray400}" />
+                    <Label Text="Suggested List" FontSize="18" Margin="20,5" Style="{StaticResource Regular}" TextColor="{StaticResource Gray400}" />
                     <ScrollView Orientation="Horizontal" HeightRequest="300" HorizontalScrollBarVisibility="Never">
-                        <HorizontalStackLayout Spacing="10" Padding="20,0,0,0">
+                        <HorizontalStackLayout Spacing="10" Padding="20,0,20,0">
                             <!-- Repeat frames here -->
                             <Frame Padding="0" WidthRequest="200" HeightRequest="300">
                                 <VerticalStackLayout>
