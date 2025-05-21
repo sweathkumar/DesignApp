@@ -10,7 +10,6 @@ namespace DesignApp.View;
 
 public partial class Login : ContentPage, INotifyPropertyChanged
 {
-    public List<LoginModel> Pages { get; set; }
     private bool _showPassword;
     public bool ShowPassword
     {

@@ -11,10 +11,10 @@
     
     <!-- Bottom Tabs -->
     <TabBar>
-        <ShellContent Title="Home" Icon="hometab.png" ContentTemplate="{DataTemplate pages:HomePage}" />
-        <ShellContent Title="Design" Icon="designtab.png" ContentTemplate="{DataTemplate pages:DesignPage}" />
-        <ShellContent Title="About" Icon="abouttab.png" ContentTemplate="{DataTemplate pages:AboutPage}" />
-        <ShellContent Title="Profile" Icon="profile.png" ContentTemplate="{DataTemplate pages:ProfilePage}" />
+        <ShellContent Title="Home" Icon="homeicon.png" ContentTemplate="{DataTemplate pages:HomePage}" />
+        <ShellContent Title="Design" Icon="menudesicon.png" ContentTemplate="{DataTemplate pages:DesignPage}" />
+        <ShellContent Title="About" Icon="aboutusicon.png" ContentTemplate="{DataTemplate pages:AboutPage}" />
+        <ShellContent Title="Profile" Icon="profileiconimage.png" ContentTemplate="{DataTemplate pages:ProfilePage}" />
     </TabBar>
     <ShellContent Title="Settings" ContentTemplate="{DataTemplate pages:Settings}" Route="Settings" />
     <ShellContent Title="Login" ContentTemplate="{DataTemplate pages:Login}" Route="Login" />

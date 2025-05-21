@@ -10,7 +10,7 @@
             <HorizontalStackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
             </HorizontalStackLayout.GestureRecognizers>
-            <ImageButton Source="back.png" HeightRequest="22" WidthRequest="22"/>
+            <ImageButton Source="backicon.png" HeightRequest="22" WidthRequest="22"/>
             <Label Text="Settings" Style="{StaticResource Medium}" TextColor="Black" FontSize="20"/>
         </HorizontalStackLayout>
         <Border Grid.Row="1" BackgroundColor="{StaticResource Gray100}"/>
